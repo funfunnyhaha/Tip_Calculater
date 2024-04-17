@@ -9,6 +9,7 @@ packages = [{include = "tip_calculater"}]
 [tool.poetry.dependencies]
 python = "^3.9"
 pyqt6 = "^6.6.1"
+ruff = "^0.3.7"
 
 
 [build-system]

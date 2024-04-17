@@ -1,26 +1,14 @@
 import sys
 
-from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import (
+    QGridLayout,
     QApplication,
-    QCheckBox,
-    QComboBox,
-    QDateEdit,
-    QDateTimeEdit,
-    QDial,
     QDoubleSpinBox,
-    QFontComboBox,
     QLabel,
-    QLCDNumber,
-    QLineEdit,
     QMainWindow,
-    QProgressBar,
     QPushButton,
-    QRadioButton,
-    QSlider,
     QSpinBox,
     QTextEdit,
-    QTimeEdit,
     QVBoxLayout,
     QWidget,
 )
@@ -33,27 +21,32 @@ class MainWindow(QMainWindow):
 
         self.setWindowTitle("Widgets App")
 
-        layout = QVBoxLayout()
-        widgets = [
-            QComboBox,
-            QDateEdit,
-            QDateTimeEdit,
-            QDoubleSpinBox,
-            QFontComboBox,
-            QLCDNumber,
-            QLabel,
-            QLineEdit,
-            QProgressBar,
-            QPushButton,
-            QRadioButton,
-            QSlider,
-            QSpinBox,
-            QTextEdit,
-            QTimeEdit,
-        ]
+        layout = QGridLayout()
 
-        for w in widgets:
-            layout.addWidget(w())
+        self.money_spent_input = QDoubleSpinBox()
+        self.money_spent_input.setPrefix("$ ")
+        self.money_spent_input.setMinimum(0.0)
+
+        self.tip_percent_input = QSpinBox()
+        self.tip_percent_input.setSuffix("%")
+        self.tip_percent_input.setMinimum(0)
+
+        calculate_button = QPushButton("Calculate!")
+
+        instructions_text = QTextEdit("Instructions")
+
+        tip_amount_output = QLabel("Tip Amount")
+
+        total_spent_output = QLabel("Total Spent")
+
+        #Add widgits to the grid
+        layout.addWidget(self.money_spent_input, 0,0)
+        layout.addWidget(instructions_text, 0,1,2,2)
+        layout.addWidget(self.tip_percent_input, 1,0)
+        layout.addWidget(calculate_button, 2,0)
+        layout.addWidget(tip_amount_output, 2,1)
+        layout.addWidget(total_spent_output, 2,2)
+
 
         widget = QWidget()
         widget.setLayout(layout)

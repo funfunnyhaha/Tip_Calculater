@@ -1,0 +1,15 @@
+QWidget {
+    background-color: #FFFFFF;
+}
+QSpinBox, QDoubleSpinBox {
+    background-color: cornflowerblue;
+}
+QLabel {
+    background-color: coral;
+}
+QPushButton {
+    border-color: black;
+    border-radius: 29px;
+    height: 60px;
+    background-color: red;
+}

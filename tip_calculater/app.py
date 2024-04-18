@@ -9,7 +9,6 @@ from PyQt6.QtWidgets import (
     QPushButton,
     QSpinBox,
     QTextEdit,
-    QVBoxLayout,
     QWidget,
 )
 
@@ -55,8 +54,13 @@ class MainWindow(QMainWindow):
         # to take up all the space in the window by default.
         self.setCentralWidget(widget)
 
-
 app = QApplication(sys.argv)
+stylesheet = None
+styles_path = "Resorces/Styles.qss"
+#gets the code from the style sheet
+with open(styles_path, "r") as f:
+    stylesheet = f.read() 
+app.setStyleSheet(stylesheet)
 window = MainWindow()
 window.show()
 

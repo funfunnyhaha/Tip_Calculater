@@ -30,21 +30,23 @@ class MainWindow(QMainWindow):
         self.tip_percent_input.setSuffix("%")
         self.tip_percent_input.setMinimum(0)
 
-        calculate_button = QPushButton("Calculate!")
+        self.calculate_button = QPushButton("Calculate!")
+        #Add a calculate function
+        self.calculate_button.clicked.connect(self.calculate_tip)
 
-        instructions_text = QTextEdit("Instructions")
+        self.instructions_text = QTextEdit("Instructions")
 
-        tip_amount_output = QLabel("Tip Amount")
+        self.tip_amount_output = QLabel("Tip Amount")
 
-        total_spent_output = QLabel("Total Spent")
+        self.total_spent_output = QLabel("Total Spent")
 
         #Add widgits to the grid
         layout.addWidget(self.money_spent_input, 0,0)
-        layout.addWidget(instructions_text, 0,1,2,2)
+        layout.addWidget(self.instructions_text, 0,1,2,2)
         layout.addWidget(self.tip_percent_input, 1,0)
-        layout.addWidget(calculate_button, 2,0)
-        layout.addWidget(tip_amount_output, 2,1)
-        layout.addWidget(total_spent_output, 2,2)
+        layout.addWidget(self.calculate_button, 2,0)
+        layout.addWidget(self.tip_amount_output, 2,1)
+        layout.addWidget(self.total_spent_output, 2,2)
 
 
         widget = QWidget()

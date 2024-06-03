@@ -1,4 +1,5 @@
 import sys
+import Controller
 
 from PyQt6.QtWidgets import (
     QGridLayout,
@@ -37,8 +38,10 @@ class MainWindow(QMainWindow):
         self.instructions_text = QTextEdit("Instructions")
 
         self.tip_amount_output = QLabel("Tip Amount")
+        self.tip_amount_output.setContentsMargins(25, 0, 25, 0)
 
         self.total_spent_output = QLabel("Total Spent")
+        self.total_spent_output.setContentsMargins(25, 0, 25, 0)
 
         #Add widgits to the grid
         layout.addWidget(self.money_spent_input, 0,0)
@@ -55,6 +58,16 @@ class MainWindow(QMainWindow):
         # Set the central widget of the Window. Widget will expand
         # to take up all the space in the window by default.
         self.setCentralWidget(widget)
+    
+    def calculate_tip(self):
+        money_spent = self.money_spent_input.value()
+        tip_percent = self.tip_percent_input.value()
+        tip = Controller.get_tip(money_spent, tip_percent)
+        total = Controller.get_total(money_spent, tip)
+        tip = f"${tip}"
+        total = f"${total}"
+        self.tip_amount_output.setText(tip)
+        self.total_spent_output.setText(total)
 
 app = QApplication(sys.argv)
 stylesheet = None

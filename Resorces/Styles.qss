@@ -3,6 +3,7 @@ QWidget {
 }
 QSpinBox, QDoubleSpinBox {
     background-color: cornflowerblue;
+    text-color: white;
 }
 QLabel {
     background-color: coral;

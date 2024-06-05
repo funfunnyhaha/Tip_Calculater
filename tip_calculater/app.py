@@ -26,10 +26,12 @@ class MainWindow(QMainWindow):
         self.money_spent_input = QDoubleSpinBox()
         self.money_spent_input.setPrefix("$ ")
         self.money_spent_input.setMinimum(0.0)
+        self.money_spent_input.setMaximum(999999999.99)
 
         self.tip_percent_input = QSpinBox()
         self.tip_percent_input.setSuffix("%")
         self.tip_percent_input.setMinimum(0)
+        self.tip_percent_input.setMaximum(100)
 
         self.calculate_button = QPushButton("Calculate!")
         #Add a calculate function
